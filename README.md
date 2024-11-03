@@ -3,10 +3,10 @@ This project is a frontend React application designed to demonstrate powerful fi
 ## Technologies Used
 This project leverages several modern frontend technologies:
 
-**React.js:** For building a component-based UI with efficient state management and performance.
-**Tailwind CSS:** Used to style the application with a utility-first approach, enabling quick and responsive styling.
-**Material-UI (MUI):** Used for pre-designed components like buttons, cards, and inputs, ensuring a clean and consistent design language.
-**Redux Toolkit:** Employed for managing the application state, making complex state interactions easier and more maintainable.
+1. **React.js:** For building a component-based UI with efficient state management and performance.
+2. **Tailwind CSS:** Used to style the application with a utility-first approach, enabling quick and responsive styling.
+3. **Material-UI (MUI):** Used for pre-designed components like buttons, cards, and inputs, ensuring a clean and consistent design language.
+4. **Redux Toolkit:** Employed for managing the application state, making complex state interactions easier and more maintainable.
 
 ## Getting Started
 ### Prerequisites
