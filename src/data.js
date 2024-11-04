@@ -1,28 +1,5 @@
 const products = [
-  {
-    id: "T1001",
-    name: "Basic Crew Neck T-Shirt",
-    type: "T-Shirt",
-    category: "Men's Clothing",
-    price: 19.99,
-    color: ["Black"],
-    size: ["S", "M", "L", "XL"],
-    dressStyle: "Casual",
-    material: "Cotton",
-    brand: "UrbanWear",
-    rating: 4.5,
-    reviewCount: 500,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-11-01",
-    isNewArrival: true,
-    image: "https://png.pngtree.com/png-vector/20240401/ourmid/pngtree-black-t-shirt-mockup-transparent-background-png-image_12256281.png",
-    tags: ["basic", "everyday", "comfortable"],
-    features: [
-      "Soft fabric",
-      "Machine washable",
-      "Classic fit"
-    ]
-  },
+
   {
     id: "T1002",
     name: "Graphic Print T-Shirt",
@@ -48,51 +25,27 @@ const products = [
     ]
   },
   {
-    id: "T1003",
-    name: "Athletic Fit T-Shirt",
-    type: "T-Shirt",
-    category: "Men's Activewear",
-    price: 29.99,
-    color: ["Blue"],
-    size: ["S", "M", "L", "XL", "XXL"],
-    dressStyle: "Sportswear",
-    material: "Polyester Blend",
-    brand: "ActiveLife",
-    rating: 4.7,
-    reviewCount: 250,
+    id: "H1003",
+    name: "Oversized Hoodie",
+    type: "Hoodie",
+    category: "Unisex Clothing",
+    price: 54.99,
+    color: ["Green"],
+    size: ["M", "L", "XL", "XXL"],
+    dressStyle: "Streetwear",
+    material: "Cotton Blend",
+    brand: "StreetSmart",
+    rating: 4.8,
+    reviewCount: 500,
     stockStatus: "In Stock",
-    arrivalTime: "2024-11-02",
+    arrivalTime: "2024-11-01",
+    image: "https://img.freepik.com/premium-psd/green-hoodie-isolated-transparent-background-png_1073071-1164.jpg",
     isNewArrival: true,
-    image: "https://img.freepik.com/free-psd/t-shirt-with-blue-color-isolated-transparent-background_191095-23065.jpg",
-    tags: ["athletic", "sports", "moisture-wicking"],
+    tags: ["oversized", "trendy", "comfortable"],
     features: [
-      "Quick-dry fabric",
-      "Flexible stretch",
-      "Breathable"
-    ]
-  },
-  {
-    id: "T1004",
-    name: "V-Neck Casual T-Shirt",
-    type: "T-Shirt",
-    category: "Women's Clothing",
-    price: 22.49,
-    color: ["Pink"],
-    size: ["XS", "S", "M", "L"],
-    dressStyle: "Casual",
-    material: "Cotton",
-    brand: "ChicStyle",
-    rating: 4.3,
-    reviewCount: 270,
-    stockStatus: "Limited Stock",
-    arrivalTime: "2024-10-25",
-    isNewArrival: false,
-    image: "https://banner2.cleanpng.com/20180618/viv/kisspng-t-shirt-neckline-gildan-activewear-clothing-hot-pink-5b2813d36b1276.1874976115293531714386.jpg",
-    tags: ["v-neck", "soft", "comfortable"],
-    features: [
-      "Soft fabric",
-      "V-neck cut",
-      "Relaxed fit"
+      "Baggy fit",
+      "Extra-large hood",
+      "Ribbed cuffs"
     ]
   },
   {
@@ -141,6 +94,30 @@ const products = [
       "Button neckline",
       "Comfort fit",
       "Warm for cooler weather"
+    ]
+  },
+  {
+    id: "J1001",
+    name: "Classic Straight Jeans",
+    type: "Jeans",
+    category: "Men's Clothing",
+    price: 49.99,
+    color: ["Blue"],
+    size: ["30", "32", "34", "36", "38"],
+    dressStyle: "Casual",
+    material: "Denim",
+    brand: "DenimEssentials",
+    rating: 4.6,
+    reviewCount: 450,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-10-29",
+    isNewArrival: true,
+    image: "https://img.freepik.com/free-psd/blue-jeans-isolated-transparent-background_191095-17292.jpg",
+    tags: ["classic", "straight fit", "casual"],
+    features: [
+      "Straight fit",
+      "Five-pocket style",
+      "Durable denim"
     ]
   },
   {
@@ -216,6 +193,30 @@ const products = [
     ]
   },
   {
+    id: "H1008",
+    name: "Vintage Washed Hoodie",
+    type: "Hoodie",
+    category: "Men's Clothing",
+    price: 42.99,
+    color: ["Red"],
+    size: ["S", "M", "L", "XL"],
+    dressStyle: "Casual",
+    material: "Cotton",
+    brand: "RetroVibe",
+    rating: 4.2,
+    reviewCount: 260,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-11-04",
+    isNewArrival: true,
+    image: "https://img.freepik.com/premium-psd/red-hoodie-isolated-transparent-background_220739-12874.jpg",
+    tags: ["vintage", "washed", "soft"],
+    features: [
+      "Vintage wash",
+      "Kangaroo pocket",
+      "Soft interior"
+    ]
+  },
+  {
     id: "S1001",
     name: "Classic Denim Shorts",
     type: "Shorts",
@@ -237,54 +238,6 @@ const products = [
       "High-waisted",
       "Distressed finish",
       "Machine washable"
-    ]
-  },
-  {
-    id: "S1002",
-    name: "Athletic Gym Shorts",
-    type: "Shorts",
-    category: "Men's Activewear",
-    price: 24.99,
-    color: ["Gray"],
-    size: ["S", "M", "L", "XL", "XXL"],
-    dressStyle: "Sportswear",
-    material: "Polyester",
-    brand: "ActiveLife",
-    rating: 4.8,
-    reviewCount: 420,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-11-01",
-    isNewArrival: true,
-    image: "https://as3athletics.com/cdn/shop/products/mockup-df3964a2_1024x.png?v=1597721858",
-    tags: ["gym", "workout", "breathable"],
-    features: [
-      "Moisture-wicking",
-      "Quick-dry fabric",
-      "Elastic waistband"
-    ]
-  },
-  {
-    id: "S1003",
-    name: "Casual Chino Shorts",
-    type: "Shorts",
-    category: "Men's Clothing",
-    price: 34.99,
-    color: ["Red"],
-    size: ["M", "L", "XL", "XXL"],
-    dressStyle: "Smart Casual",
-    material: "Cotton",
-    brand: "ChinoClassics",
-    rating: 4.4,
-    reviewCount: 310,
-    stockStatus: "Limited Stock",
-    arrivalTime: "2024-10-29",
-    isNewArrival: false,
-    image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cleanpng.com%2Fpng-bermuda-shorts-school-uniform-clothing-sportswear-1142420%2F&psig=AOvVaw3H3Vg9N1INJ1XqFbMioHj6&ust=1730619413050000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOi2wu2RvYkDFQAAAAAdAAAAABAJ",
-    tags: ["chino", "smart", "casual"],
-    features: [
-      "Four pockets",
-      "Button and zipper closure",
-      "Lightweight"
     ]
   },
   {
@@ -408,6 +361,30 @@ const products = [
     ]
   },
   {
+    id: "J1004",
+    name: "Bootcut Jeans",
+    type: "Jeans",
+    category: "Women's Clothing",
+    price: 47.99,
+    color: ["black"],
+    size: ["26", "28", "30", "32", "34"],
+    dressStyle: "Casual",
+    material: "Cotton Denim",
+    brand: "BootTrend",
+    rating: 4.4,
+    reviewCount: 250,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-11-01",
+    isNewArrival: true,
+    image: "https://png.pngtree.com/png-clipart/20231021/original/pngtree-jeans-isolated-on-white-background-pattern-picture-image_13189141.png",
+    tags: ["bootcut", "casual", "stretch denim"],
+    features: [
+      "Bootcut style",
+      "Comfort stretch",
+      "Mid-rise"
+    ]
+  },
+  {
     id: "S1009",
     name: "Comfort shorts",
     type: "Shorts",
@@ -429,6 +406,30 @@ const products = [
       "Raw hem",
       "Distressed look",
       "Comfortable fit"
+    ]
+  },
+  {
+    id: "T1001",
+    name: "Basic Crew Neck T-Shirt",
+    type: "T-Shirt",
+    category: "Men's Clothing",
+    price: 19.99,
+    color: ["Black"],
+    size: ["S", "M", "L", "XL"],
+    dressStyle: "Casual",
+    material: "Cotton",
+    brand: "UrbanWear",
+    rating: 4.5,
+    reviewCount: 500,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-11-01",
+    isNewArrival: true,
+    image: "https://png.pngtree.com/png-vector/20240401/ourmid/pngtree-black-t-shirt-mockup-transparent-background-png-image_12256281.png",
+    tags: ["basic", "everyday", "comfortable"],
+    features: [
+      "Soft fabric",
+      "Machine washable",
+      "Classic fit"
     ]
   },
   {
@@ -480,30 +481,6 @@ const products = [
     ]
   },
   {
-    id: "H1003",
-    name: "Oversized Hoodie",
-    type: "Hoodie",
-    category: "Unisex Clothing",
-    price: 54.99,
-    color: ["Green"],
-    size: ["M", "L", "XL", "XXL"],
-    dressStyle: "Streetwear",
-    material: "Cotton Blend",
-    brand: "StreetSmart",
-    rating: 4.8,
-    reviewCount: 500,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-11-01",
-    image: "https://img.freepik.com/premium-psd/green-hoodie-isolated-transparent-background-png_1073071-1164.jpg",
-    isNewArrival: true,
-    tags: ["oversized", "trendy", "comfortable"],
-    features: [
-      "Baggy fit",
-      "Extra-large hood",
-      "Ribbed cuffs"
-    ]
-  },
-  {
     id: "H1004",
     name: "Performance Athletic Hoodie",
     type: "Hoodie",
@@ -525,54 +502,6 @@ const products = [
       "Moisture-wicking fabric",
       "Breathable",
       "Reflective accents"
-    ]
-  },
-  {
-    id: "H1005",
-    name: "Sherpa Lined Hoodie",
-    type: "Hoodie",
-    category: "Women's Clothing",
-    price: 64.99,
-    color: ["Gray"],
-    size: ["S", "M", "L", "XL"],
-    dressStyle: "Winterwear",
-    material: "Fleece",
-    brand: "WarmEssentials",
-    rating: 4.9,
-    reviewCount: 340,
-    stockStatus: "Limited Stock",
-    arrivalTime: "2024-11-03",
-    isNewArrival: true,
-    image: " https://images-cdn.ubuy.co.in/6586b6ae9a9ab76bc3314f60-men-s-heavyweight-thermal-zip-up-hoodie.jpg",
-    tags: ["sherpa", "lined", "warm"],
-    features: [
-      "Sherpa lining",
-      "Extra warmth",
-      "Zipper closure"
-    ]
-  },
-  {
-    id: "H1006",
-    name: "Crop Hoodie",
-    type: "Hoodie",
-    category: "Women's Clothing",
-    price: 34.99,
-    color: ["Black"],
-    size: ["XS", "S", "M", "L"],
-    dressStyle: "Streetwear",
-    material: "Cotton",
-    brand: "ChicWear",
-    rating: 4.3,
-    reviewCount: 200,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-10-29",
-    isNewArrival: false,
-    image: "https://happydude.in/wp-content/uploads/2020/12/Plain-Black-Crop-Hoodie.jpeg",
-    tags: ["crop", "fashion", "streetwear"],
-    features: [
-      "Cropped fit",
-      "Raw hem",
-      "Drawstring hood"
     ]
   },
   {
@@ -600,30 +529,6 @@ const products = [
     ]
   },
   {
-    id: "H1008",
-    name: "Vintage Washed Hoodie",
-    type: "Hoodie",
-    category: "Men's Clothing",
-    price: 42.99,
-    color: ["Red"],
-    size: ["S", "M", "L", "XL"],
-    dressStyle: "Casual",
-    material: "Cotton",
-    brand: "RetroVibe",
-    rating: 4.2,
-    reviewCount: 260,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-11-04",
-    isNewArrival: true,
-    image: "https://img.freepik.com/premium-psd/red-hoodie-isolated-transparent-background_220739-12874.jpg",
-    tags: ["vintage", "washed", "soft"],
-    features: [
-      "Vintage wash",
-      "Kangaroo pocket",
-      "Soft interior"
-    ]
-  },
-  {
     id: "H1009",
     name: "Eco-Friendly Hoodie",
     type: "Hoodie",
@@ -645,6 +550,30 @@ const products = [
       "Made from recycled materials",
       "Soft touch",
       "Low-impact dye"
+    ]
+  },
+  {
+    id: "T1004",
+    name: "V-Neck Casual T-Shirt",
+    type: "T-Shirt",
+    category: "Women's Clothing",
+    price: 22.49,
+    color: ["Pink"],
+    size: ["XS", "S", "M", "L"],
+    dressStyle: "Casual",
+    material: "Cotton",
+    brand: "ChicStyle",
+    rating: 4.3,
+    reviewCount: 270,
+    stockStatus: "Limited Stock",
+    arrivalTime: "2024-10-25",
+    isNewArrival: false,
+    image: "https://banner2.cleanpng.com/20180618/viv/kisspng-t-shirt-neckline-gildan-activewear-clothing-hot-pink-5b2813d36b1276.1874976115293531714386.jpg",
+    tags: ["v-neck", "soft", "comfortable"],
+    features: [
+      "Soft fabric",
+      "V-neck cut",
+      "Relaxed fit"
     ]
   },
   {
@@ -696,6 +625,30 @@ const products = [
     ]
   },
   {
+    id: "S1002",
+    name: "Athletic Gym Shorts",
+    type: "Shorts",
+    category: "Men's Activewear",
+    price: 24.99,
+    color: ["Gray"],
+    size: ["S", "M", "L", "XL", "XXL"],
+    dressStyle: "Sportswear",
+    material: "Polyester",
+    brand: "ActiveLife",
+    rating: 4.8,
+    reviewCount: 420,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-11-01",
+    isNewArrival: true,
+    image: "https://as3athletics.com/cdn/shop/products/mockup-df3964a2_1024x.png?v=1597721858",
+    tags: ["gym", "workout", "breathable"],
+    features: [
+      "Moisture-wicking",
+      "Quick-dry fabric",
+      "Elastic waistband"
+    ]
+  },
+  {
     id: "S1003",
     name: "Slim Fit Dress Shirt",
     type: "Shirt",
@@ -717,6 +670,30 @@ const products = [
       "Slim fit design",
       "Non-iron fabric",
       "Adjustable cuffs"
+    ]
+  },
+  {
+    id: "T1003",
+    name: "Athletic Fit T-Shirt",
+    type: "T-Shirt",
+    category: "Men's Activewear",
+    price: 29.99,
+    color: ["Blue"],
+    size: ["S", "M", "L", "XL", "XXL"],
+    dressStyle: "Sportswear",
+    material: "Polyester Blend",
+    brand: "ActiveLife",
+    rating: 4.7,
+    reviewCount: 250,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-11-02",
+    isNewArrival: true,
+    image: "https://img.freepik.com/free-psd/t-shirt-with-blue-color-isolated-transparent-background_191095-23065.jpg",
+    tags: ["athletic", "sports", "moisture-wicking"],
+    features: [
+      "Quick-dry fabric",
+      "Flexible stretch",
+      "Breathable"
     ]
   },
   {
@@ -744,6 +721,30 @@ const products = [
     ]
   },
   {
+    id: "H1006",
+    name: "Crop Hoodie",
+    type: "Hoodie",
+    category: "Women's Clothing",
+    price: 34.99,
+    color: ["Black"],
+    size: ["XS", "S", "M", "L"],
+    dressStyle: "Streetwear",
+    material: "Cotton",
+    brand: "ChicWear",
+    rating: 4.3,
+    reviewCount: 200,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-10-29",
+    isNewArrival: false,
+    image: "https://happydude.in/wp-content/uploads/2020/12/Plain-Black-Crop-Hoodie.jpeg",
+    tags: ["crop", "fashion", "streetwear"],
+    features: [
+      "Cropped fit",
+      "Raw hem",
+      "Drawstring hood"
+    ]
+  },
+  {
     id: "S1005",
     name: "Chambray Button-Up Shirt",
     type: "Shirt",
@@ -768,27 +769,27 @@ const products = [
     ]
   },
   {
-    id: "S1006",
-    name: "Relaxed Linen Shirt",
-    type: "Shirt",
+    id: "J1008",
+    name: "Flared Jeans",
+    type: "Jeans",
     category: "Women's Clothing",
-    price: 39.99,
-    color: ["White"],
-    size: ["S", "M", "L", "XL"],
-    dressStyle: "Casual",
-    material: "Linen",
-    brand: "NatureWear",
+    price: 52.99,
+    color: ["Black"],
+    size: ["24", "26", "28", "30", "32"],
+    dressStyle: "Retro",
+    material: "Denim",
+    brand: "FashionRetro",
     rating: 4.7,
-    reviewCount: 320,
+    reviewCount: 260,
     stockStatus: "In Stock",
-    arrivalTime: "2024-10-29",
-    isNewArrival: false,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDDhCSd4AvFpicgntKrK4n_HIlt2bGvAeMPA&s",
-    tags: ["linen", "relaxed fit", "breathable"],
+    arrivalTime: "2024-10-28",
+    isNewArrival: true,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqMr2JYrSu37Kchl7y2Svjg1W6D3rFgeY-Xg&s",
+    tags: ["flared", "retro", "high-rise"],
     features: [
-      "Breathable linen",
-      "Roll-up sleeves",
-      "Relaxed fit"
+      "High-rise waist",
+      "Flared bottom",
+      "Stretch fabric"
     ]
   },
   {
@@ -813,6 +814,54 @@ const products = [
       "Snap buttons",
       "Pointed yoke",
       "Chest pockets"
+    ]
+  },
+  {
+    id: "S1003",
+    name: "Casual Chino Shorts",
+    type: "Shorts",
+    category: "Men's Clothing",
+    price: 34.99,
+    color: ["Red"],
+    size: ["M", "L", "XL", "XXL"],
+    dressStyle: "Smart Casual",
+    material: "Cotton",
+    brand: "ChinoClassics",
+    rating: 4.4,
+    reviewCount: 310,
+    stockStatus: "Limited Stock",
+    arrivalTime: "2024-10-29",
+    isNewArrival: false,
+    image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cleanpng.com%2Fpng-bermuda-shorts-school-uniform-clothing-sportswear-1142420%2F&psig=AOvVaw3H3Vg9N1INJ1XqFbMioHj6&ust=1730619413050000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOi2wu2RvYkDFQAAAAAdAAAAABAJ",
+    tags: ["chino", "smart", "casual"],
+    features: [
+      "Four pockets",
+      "Button and zipper closure",
+      "Lightweight"
+    ]
+  },
+  {
+    id: "J1003",
+    name: "Relaxed Fit Jeans",
+    type: "Jeans",
+    category: "Men's Clothing",
+    price: 39.99,
+    color: ["Blue"],
+    size: ["30", "32", "34", "36", "38", "40"],
+    dressStyle: "Casual",
+    material: "Denim",
+    brand: "ComfortWear",
+    rating: 4.5,
+    reviewCount: 200,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-10-26",
+    isNewArrival: false,
+    image: "https://img.freepik.com/free-psd/blue-jeans-isolated-transparent-background_191095-17296.jpg",
+    tags: ["relaxed fit", "comfortable", "classic"],
+    features: [
+      "Relaxed fit",
+      "Roomy through thigh",
+      "Durable stitching"
     ]
   },
   {
@@ -864,30 +913,6 @@ const products = [
     ]
   },
   {
-    id: "J1001",
-    name: "Classic Straight Jeans",
-    type: "Jeans",
-    category: "Men's Clothing",
-    price: 49.99,
-    color: ["Blue"],
-    size: ["30", "32", "34", "36", "38"],
-    dressStyle: "Casual",
-    material: "Denim",
-    brand: "DenimEssentials",
-    rating: 4.6,
-    reviewCount: 450,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-10-29",
-    isNewArrival: true,
-    image: "https://img.freepik.com/free-psd/blue-jeans-isolated-transparent-background_191095-17292.jpg",
-    tags: ["classic", "straight fit", "casual"],
-    features: [
-      "Straight fit",
-      "Five-pocket style",
-      "Durable denim"
-    ]
-  },
-  {
     id: "J1002",
     name: "Skinny Fit Jeans",
     type: "Jeans",
@@ -912,53 +937,30 @@ const products = [
     ]
   },
   {
-    id: "J1003",
-    name: "Relaxed Fit Jeans",
-    type: "Jeans",
-    category: "Men's Clothing",
-    price: 39.99,
-    color: ["Blue"],
-    size: ["30", "32", "34", "36", "38", "40"],
-    dressStyle: "Casual",
-    material: "Denim",
-    brand: "ComfortWear",
-    rating: 4.5,
-    reviewCount: 200,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-10-26",
-    isNewArrival: false,
-    image: "https://img.freepik.com/free-psd/blue-jeans-isolated-transparent-background_191095-17296.jpg",
-    tags: ["relaxed fit", "comfortable", "classic"],
-    features: [
-      "Relaxed fit",
-      "Roomy through thigh",
-      "Durable stitching"
-    ]
-  },
-  {
-    id: "J1004",
-    name: "Bootcut Jeans",
-    type: "Jeans",
+    id: "H1005",
+    name: "Sherpa Lined Hoodie",
+    type: "Hoodie",
     category: "Women's Clothing",
-    price: 47.99,
-    color: ["black"],
-    size: ["26", "28", "30", "32", "34"],
-    dressStyle: "Casual",
-    material: "Cotton Denim",
-    brand: "BootTrend",
-    rating: 4.4,
-    reviewCount: 250,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-11-01",
+    price: 64.99,
+    color: ["Gray"],
+    size: ["S", "M", "L", "XL"],
+    dressStyle: "Winterwear",
+    material: "Fleece",
+    brand: "WarmEssentials",
+    rating: 4.9,
+    reviewCount: 340,
+    stockStatus: "Limited Stock",
+    arrivalTime: "2024-11-03",
     isNewArrival: true,
-    image: "https://png.pngtree.com/png-clipart/20231021/original/pngtree-jeans-isolated-on-white-background-pattern-picture-image_13189141.png",
-    tags: ["bootcut", "casual", "stretch denim"],
+    image: " https://images-cdn.ubuy.co.in/6586b6ae9a9ab76bc3314f60-men-s-heavyweight-thermal-zip-up-hoodie.jpg",
+    tags: ["sherpa", "lined", "warm"],
     features: [
-      "Bootcut style",
-      "Comfort stretch",
-      "Mid-rise"
+      "Sherpa lining",
+      "Extra warmth",
+      "Zipper closure"
     ]
   },
+
   {
     id: "J1005",
     name: "High-Waisted Mom Jeans",
@@ -981,6 +983,30 @@ const products = [
       "High-rise",
       "Tapered leg",
       "Non-stretch denim"
+    ]
+  },
+  {
+    id: "S1006",
+    name: "Relaxed Linen Shirt",
+    type: "Shirt",
+    category: "Women's Clothing",
+    price: 39.99,
+    color: ["White"],
+    size: ["S", "M", "L", "XL"],
+    dressStyle: "Casual",
+    material: "Linen",
+    brand: "NatureWear",
+    rating: 4.7,
+    reviewCount: 320,
+    stockStatus: "In Stock",
+    arrivalTime: "2024-10-29",
+    isNewArrival: false,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDDhCSd4AvFpicgntKrK4n_HIlt2bGvAeMPA&s",
+    tags: ["linen", "relaxed fit", "breathable"],
+    features: [
+      "Breathable linen",
+      "Roll-up sleeves",
+      "Relaxed fit"
     ]
   },
   {
@@ -1032,30 +1058,6 @@ const products = [
     ]
   },
   {
-    id: "J1008",
-    name: "Flared Jeans",
-    type: "Jeans",
-    category: "Women's Clothing",
-    price: 52.99,
-    color: ["Black"],
-    size: ["24", "26", "28", "30", "32"],
-    dressStyle: "Retro",
-    material: "Denim",
-    brand: "FashionRetro",
-    rating: 4.7,
-    reviewCount: 260,
-    stockStatus: "In Stock",
-    arrivalTime: "2024-10-28",
-    isNewArrival: true,
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqMr2JYrSu37Kchl7y2Svjg1W6D3rFgeY-Xg&s",
-    tags: ["flared", "retro", "high-rise"],
-    features: [
-      "High-rise waist",
-      "Flared bottom",
-      "Stretch fabric"
-    ]
-  },
-  {
     id: "J1009",
     name: "Slim Fit Black Jeans",
     type: "Jeans",
@@ -1081,4 +1083,5 @@ const products = [
   }
 ];
 
-export default products
+
+export default products;

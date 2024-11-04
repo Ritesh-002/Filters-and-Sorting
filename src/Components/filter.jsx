@@ -154,6 +154,7 @@ const Filter = () => {
                     </AccordionDetails>
                 </Accordion>
             </div>
+            <button className='text-white bg-black font-semibold flex items-center justify-center h-12 my-3 w-full rounded-full'>Apply filters</button>
         </div>
     )
 }

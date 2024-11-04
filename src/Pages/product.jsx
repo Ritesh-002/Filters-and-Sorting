@@ -13,8 +13,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
+// import MailIcon from '@mui/icons-material/Mail';
 import { ImCross } from 'react-icons/im';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -25,6 +25,7 @@ import Filter from '../Components/filter';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import ProductCard from '../Components/productCard';
+import Pagination from '@mui/material/Pagination';
 
 function valuetext(value) {
     return `$${value}°C`;
@@ -33,10 +34,12 @@ function valuetext(value) {
 const Product = () => {
     const products = useSelector(state => state.products);
     const [age, setAge] = useState('');
+    const [pageNum, setPageNum] = useState(1)
 
     const [state, setState] = useState({
         bottom: false,
     });
+    const totalProducts = products.length;
 
     const [value, setValue] = useState([100, 280]);
 
@@ -44,10 +47,15 @@ const Product = () => {
         setValue(newValue);
     };
 
+    const handlePageChange = (event, value) => {
+        setPageNum(value)
+        console.log(pageNum)
+    }
+
     const p = useEffect(() => {
-        console.log(products)
+        // console.log(products)
         return () => {
-            
+
         };
     }, []);
 
@@ -200,6 +208,7 @@ const Product = () => {
                     </Accordion>
                 </div>
             </div>
+            <button className='text-white -mb-1 bg-black font-semibold flex items-center justify-center h-12 w-full '>Apply filters</button>
         </Box>
     );
 
@@ -239,7 +248,11 @@ const Product = () => {
             <div className='flex justify-between items-center pt-[0.5rem]'>
                 <div className='flex items-baseline gap-2'>
                     <p className='text-xl font-bold'>Casual</p>
-                    <p className='text-sm text-gray-600'>Showing 1-10 of 100 products</p>
+                    {
+                        pageNum == 1 ? 
+                            <p className='text-sm text-gray-600'>Showing 1-9 of {totalProducts} products</p>:
+                            <p className='text-sm text-gray-600'>Showing {pageNum*9-9}-{pageNum*9} of {totalProducts} products</p>       
+                    }
                 </div>
                 <div className='pr-[0.5rem]'>
                     {/* <GiSettingsKnobs size={'25px'} /> */}
@@ -255,18 +268,25 @@ const Product = () => {
                     </div>
                 </div>
             </div>
-            <div className='lg:flex lg:gap-5'>
-                <div className='w-1/4 h-auto'>
-                    <Filter/>
+            <div className='lg:flex lg:gap-8'>
+                <div className='w-1/3 h-auto'>
+                    <Filter />
                 </div>
                 <div className='lg:w-3/4 lg:h-fit flex flex-wrap lg:gap-8 gap-6'>
                     {
-                        products.slice(0,6).map((p, idx) => {
+                        pageNum == 1 ? products.slice(0, 9).map((p, idx) => {
+                            return (
+                                <ProductCard key={idx} data={p} />
+                            )
+                        }):products.slice(pageNum*9-9, pageNum*9).map((p, idx) => {
                             return (
                                 <ProductCard key={idx} data={p} />
                             )
                         })
                     }
+                    <div className='flex  items-center mt-5 justify-center'>
+                        <Pagination page={pageNum} onChange={handlePageChange} className='lg:h-fit' count={5} shape="rounded" />
+                    </div>
                 </div>
             </div>
         </div>
