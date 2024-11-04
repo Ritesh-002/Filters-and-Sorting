@@ -22,10 +22,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Slider from '@mui/material/Slider';
 import Filter from '../Components/filter';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import ProductCard from '../Components/productCard';
 import Pagination from '@mui/material/Pagination';
+import { sortProducts } from '../Redux/Features/productSlice';
 
 function valuetext(value) {
     return `$${value}°C`;
@@ -33,13 +34,15 @@ function valuetext(value) {
 
 const Product = () => {
     const products = useSelector(state => state.products);
-    const [age, setAge] = useState('');
+    const items = products.products;
+    const [sort, setSort] = useState('');
     const [pageNum, setPageNum] = useState(1)
+    const dispatch = useDispatch()
 
     const [state, setState] = useState({
         bottom: false,
     });
-    const totalProducts = products.length;
+    const totalItems = items.length;
 
     const [value, setValue] = useState([100, 280]);
 
@@ -53,7 +56,7 @@ const Product = () => {
     }
 
     const p = useEffect(() => {
-        // console.log(products)
+        // console.log(items)
         return () => {
 
         };
@@ -212,8 +215,10 @@ const Product = () => {
         </Box>
     );
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
+    const handleSortChange = (event) => {
+        console.log(event)
+        dispatch(sortProducts(event.target.value))
+        setSort(event.target.value);
     };
     return (
         <div className='p-[1rem] lg:pr-[2rem] lg:pl-[2.5rem]'>
@@ -230,17 +235,17 @@ const Product = () => {
                         <Select
                             labelId="demo-select-small-label"
                             id="demo-select-small"
-                            value={age}
+                            value={sort}
                             label="Sort"
-                            onChange={handleChange}
+                            onChange={handleSortChange}
                         >
                             <MenuItem value="">
                                 <em>None</em>
                             </MenuItem>
-                            <MenuItem value={10}>Price -- Low to High</MenuItem>
-                            <MenuItem value={20}>Price -- High to Low</MenuItem>
-                            <MenuItem value={30}>Popularity</MenuItem>
-                            <MenuItem value={30}>Latest</MenuItem>
+                            <MenuItem value={'Asc'}>Price -- Low to High</MenuItem>
+                            <MenuItem value={'Des'}>Price -- High to Low</MenuItem>
+                            <MenuItem value={'Des-Pop'}>Popularity</MenuItem>
+                            <MenuItem value={'Des-time'}>Latest</MenuItem>
                         </Select>
                     </FormControl>
                 </div>
@@ -250,8 +255,8 @@ const Product = () => {
                     <p className='text-xl font-bold'>Casual</p>
                     {
                         pageNum == 1 ? 
-                            <p className='text-sm text-gray-600'>Showing 1-9 of {totalProducts} products</p>:
-                            <p className='text-sm text-gray-600'>Showing {pageNum*9-9}-{pageNum*9} of {totalProducts} products</p>       
+                            <p className='text-sm text-gray-600'>Showing 1-9 of {totalItems} Items</p>:
+                            <p className='text-sm text-gray-600'>Showing {pageNum*9-9}-{pageNum*9} of {totalItems} Items</p>       
                     }
                 </div>
                 <div className='pr-[0.5rem]'>
@@ -274,11 +279,11 @@ const Product = () => {
                 </div>
                 <div className='lg:w-3/4 lg:h-fit flex flex-wrap lg:gap-8 gap-6'>
                     {
-                        pageNum == 1 ? products.slice(0, 9).map((p, idx) => {
+                        pageNum == 1 ? items.slice(0, 9).map((p, idx) => {
                             return (
                                 <ProductCard key={idx} data={p} />
                             )
-                        }):products.slice(pageNum*9-9, pageNum*9).map((p, idx) => {
+                        }):items.slice(pageNum*9-9, pageNum*9).map((p, idx) => {
                             return (
                                 <ProductCard key={idx} data={p} />
                             )
