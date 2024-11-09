@@ -8,16 +8,39 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Slider from '@mui/material/Slider';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { SelectionContext } from '../App';
 
 function valuetext(value) {
     return `$${value}°C`;
 }
 
 const AccordionComponent = () => {
-    const [value, setValue] = useState([100, 280]);
+    const [value, setValue] = useState([10, 500]);
+    const { selectedItemsPriceRange, setSelectedItemsPriceRange, selectedItemsColors, setSelectedItemsColors } = useContext(SelectionContext);
+
+    const handleColorClick = (index) => {
+        setSelectedItemsColors((prevSelected) => {
+            if (prevSelected.includes(index)) {
+                // Remove from selected if already selected
+                return prevSelected.filter((itemIndex) => itemIndex !== index);
+            } else {
+                // Add to selected if not selected
+                return [...prevSelected, index];
+            }
+        });
+    }
     const handlePriceChange = (event, newValue) => {
+        // console.log('event', event)
+        // console.log('value', value[1])
+        // console.log('newValue', newValue)
         setValue(newValue);
+        setSelectedItemsPriceRange(newValue)
+        // console.log('after updating')
+        // console.log('event', event)
+        // console.log('value', value[1])
+        // console.log('newValue', newValue)
+        // console.log(selectedItemsPriceRange)
     };
     return (
         <div>
@@ -35,8 +58,8 @@ const AccordionComponent = () => {
                         <Slider
                             color='black'
                             getAriaLabel={() => 'Price range'}
-                            value={value}
-                            onChange={handlePriceChange}
+                            value={selectedItemsPriceRange}
+                            onChange={(event, value) => handlePriceChange(event, value)}
                             valueLabelDisplay="on"
                             getAriaValueText={valuetext}
                             min={10}
@@ -57,14 +80,21 @@ const AccordionComponent = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="flex gap-5 flex-wrap mb-3">
-                        <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-black"></div>
+                        {/* <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-black"></div>
                         <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-red-500"></div>
                         <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-green-500"></div>
                         <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-blue-500"></div>
                         <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-gray-50"></div>
                         <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-pink-500"></div>
                         <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-yellow-500"></div>
-                        <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-gray-400"></div>
+                        <div className="hover:cursor-pointer h-8 w-8 rounded-full bg-gray-400"></div> */}
+                        {
+                            ['bg-black', 'bg-red-500', 'bg-green-500', 'bg-gray-50', 'bg-pink-500', 'bg-yellow-500', 'bg-gray-400'].map((color, index) => {
+                                return <div style={{
+                                    border: selectedItemsColors.includes(index) ? '2px solid black' : 'none', // Ensure the border style is valid
+                                }} onClick={() => handleColorClick(index)} className={`hover:cursor-pointer h-8 w-8 rounded-full ${color}`} key={index}></div>
+                            })
+                        }
                     </div>
                 </AccordionDetails>
             </Accordion>

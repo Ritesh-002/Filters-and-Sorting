@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { GiSettingsKnobs } from 'react-icons/gi';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -8,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import AccordionComponent from './accordionComponent';
 import FilterHeader from './filterHeader';
+import { filterProductsByPriceRange, filterProductsByType } from '../Redux/Features/productSlice';
+import { SelectionContext } from '../App';
 
 const FilterDrawer = () => {
     const products = useSelector(state => state.products);
@@ -20,6 +23,19 @@ const FilterDrawer = () => {
         }
 
         setState({ ...state, [anchor]: open });
+    };
+    const { selectedItems, setSelectedItems, selectedItemsPriceRange, setSelectedItemsPriceRange } = React.useContext(SelectionContext)
+    const selectedText = selectedItems.map(index => ['T-Shirts', 'Shorts', 'Shirts', 'Hoodie', 'Jeans'][index]);
+    const dispatch = useDispatch();
+    const handleApplyFilterClick = (selectedText) => {
+        dispatch(filterProductsByType(selectedText))
+    }
+    const handleApplyFilterPriceClick = (selectedItemsPriceRange) => {
+        dispatch(filterProductsByPriceRange(selectedItemsPriceRange))
+    }
+    const handleMultipleActions = (text) => {
+        handleApplyFilterClick(text);
+        handleApplyFilterPriceClick(selectedItemsPriceRange);
     };
     const list = (anchor) => (
         <Box
@@ -34,11 +50,11 @@ const FilterDrawer = () => {
                     <ImCross className="hover:cursor-pointer" onClick={toggleDrawer(anchor, false)} />
                 </div>
                 <Divider />
-                <FilterHeader/>
+                <FilterHeader />
                 <Divider />
-                <AccordionComponent/>
+                <AccordionComponent />
             </div>
-            <button className='text-white -mb-1 bg-black font-semibold flex items-center justify-center h-12 w-full '>Apply filters</button>
+            <button onClick={() => handleMultipleActions(selectedText)} className='text-white -mb-1 bg-black font-semibold flex items-center justify-center h-12 w-full '>Apply filters</button>
         </Box>
     );
     return (

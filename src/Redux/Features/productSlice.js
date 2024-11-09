@@ -16,13 +16,12 @@ export const productSlice = createSlice({
             //     // console.log('el', el);
             //     el.name.startsWith(action.payload)
             // })
-            const temp = [];
             const searchedProducts = state.products.filter((item) => {
-                if(item.name.toLowerCase().startsWith(query)) {
+                if (item.name.toLowerCase().startsWith(query)) {
                     return item;
                 }
             })
-            if(query) {
+            if (query) {
                 state.products = searchedProducts
             } else {
                 state.products = [...initialState.products]
@@ -50,11 +49,45 @@ export const productSlice = createSlice({
                 default:
                     break;
             }
+        },
+        filterProductsByType: (state, action) => {
+            console.log('action', action)
+            console.log('action.payload', action.payload)
+            const query = action.payload;
+            if (query.length !== 0) {
+                const filteredProducts = state.products.filter(item => query.includes(item.type))
+                console.log('filteredProducts.length', filteredProducts.length)
+                state.products = filteredProducts;
+            } else {
+                state.products = [...initialState.products]; // Reset to initial state if no query
+            }
+        },
+        filterProductsByPriceRange: (state, action) => {
+            console.log('action in', action)
+            console.log('action.payload in price', action.payload)
+            const query = action.payload
+            if (query.length !== 0) {
+                const filteredProducts = state.products.filter(item => item.price >= query[0] && item.price <= query[1])
+                console.log('filteredProducts.length', filteredProducts.length)
+                state.products = filteredProducts;
+            } else {
+                state.products = [...initialState.products]; // Reset to initial state if no query
+            }
+        },
+        filterProductsByColor: (state, action) => {
+            console.log('action', action)
+            console.log('action.payload', action.payload)
+            const query = action.payload;
+            if (query.length !== 0) {
+                const filteredProducts = state.products.filter(item => query.includes(item.color[0]))
+                console.log('filteredProducts.length', filteredProducts.length)
+                state.products = filteredProducts;
+            }
         }
     }
 })
 
 // Action creators are generated for each case reducer function
-export const { sortProducts, searchProducts } = productSlice.actions
+export const { sortProducts, searchProducts, filterProductsByType, filterProductsByPriceRange, filterProductsByColor } = productSlice.actions
 
 export default productSlice.reducer

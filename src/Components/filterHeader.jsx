@@ -2,10 +2,12 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
+import { SelectionContext } from '../App';
 
 const FilterHeader = () => {
-    const [selectedItems, setSelectedItems] = useState([]);
+    // const [selectedItems, setSelectedItems] = useState([]);
+    const {selectedItems, setSelectedItems} = useContext(SelectionContext);
     const handleFilterHeaderClick = (index) => {
         setSelectedItems((prevSelected) => {
             if (prevSelected.includes(index)) {
@@ -26,7 +28,7 @@ const FilterHeader = () => {
                     <ListItemButton style={{
                         fontWeight: selectedItems.includes(index) ? 'bolder' : 'normal', // Apply bold if selected
                     }} className='flex justify-between'>
-                        <ListItemText style={{fontWeight: 'bold'}}>
+                        <ListItemText style={{fontWeight: 'bolder'}}>
                             {text}
                         </ListItemText>
                         <span>&gt;</span>

@@ -5,7 +5,7 @@ const ProductCard = ({ data }) => {
     return (
         <div className='flex flex-col cursor-pointer rounded-lg gap-2 mt-5 justify-start items-start w-44 h-auto lg:h-auto lg:w-auto'>
             <div className='lg:h-60 lg:w-60 h-44 w-44 bg-gray-100 rounded-xl flex justify-center items-center'>
-                <img src={data.image} alt="data-image" className='h-44 w-44 lg:h-60 lg:w-60' />
+                <img src={data?.image} alt="data-image" className='h-44 w-44 lg:h-60 lg:w-60' />
             </div>
             <div>
                 <p className='font-semibold'>{data.name}</p>
