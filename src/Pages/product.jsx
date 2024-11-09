@@ -18,7 +18,7 @@ const Product = () => {
         setPageNum(value)
         console.log(pageNum)
     }
-    
+
     const p = useEffect(() => {
         // console.log(items)
         return () => {
@@ -34,39 +34,41 @@ const Product = () => {
                     <p className='text-lg'>&gt;</p>
                     <p className='font-semibold'>Casual</p>
                 </div>
-                <SortComponent/>
+                <SortComponent />
             </div>
             <div className='flex justify-between items-center pt-[0.5rem]'>
                 <div className='flex items-baseline gap-2'>
                     <p className='text-xl font-bold'>Casual</p>
                     {
-                        pageNum == 1 ? 
-                            <p className='text-sm text-gray-600'>Showing 1-9 of {totalItems} Items</p>:
-                            <p className='text-sm text-gray-600'>Showing {pageNum*9-9}-{pageNum*9} of {totalItems} Items</p>       
+                        pageNum == 1 ?
+                            <p className='text-sm text-gray-600'>Showing {totalItems>0?<span>1</span>:<span>0</span>}-{items.slice(0, 9).length} of {totalItems} Items</p> :
+                            <p className='text-sm text-gray-600'>Showing {totalItems>0?<span>{pageNum * 9 - 9}</span>:<span>0</span>}-{items.slice(0, pageNum*9).length} of {totalItems} Items</p>
                     }
                 </div>
-                <FilterDrawer/>
+                <FilterDrawer />
             </div>
             <div className='lg:flex lg:gap-8'>
                 <div className='w-1/3 h-auto'>
                     <Filter />
                 </div>
-                <div className='lg:w-3/4 lg:h-fit flex flex-wrap lg:gap-8 gap-6'>
-                    {
-                        pageNum == 1 ? items.slice(0, 9).map((p, idx) => {
-                            return (
-                                <ProductCard key={idx} data={p} />
-                            )
-                        }):items.slice(pageNum*9-9, pageNum*9).map((p, idx) => {
-                            return (
-                                <ProductCard key={idx} data={p} />
-                            )
-                        })
-                    }
-                    <div className='flex  items-center mt-5 justify-center'>
-                        <Pagination page={pageNum} onChange={handlePageChange} className='lg:h-fit' count={5} shape="rounded" />
-                    </div>
-                </div>
+                {
+                    totalItems > 0 ? <div className='lg:w-3/4 lg:h-fit flex flex-wrap lg:gap-8 gap-6'>
+                        {
+                            pageNum == 1 ? items.slice(0, 9).map((p, idx) => {
+                                return (
+                                    <ProductCard key={idx} data={p} />
+                                )
+                            }) : items.slice(pageNum * 9 - 9, pageNum * 9).map((p, idx) => {
+                                return (
+                                    <ProductCard key={idx} data={p} />
+                                )
+                            })
+                        }
+                        <div className='flex  items-center mt-5 justify-center'>
+                            {totalItems>9 && <Pagination page={pageNum} onChange={handlePageChange} className='lg:h-fit' count={5} shape="rounded" />}
+                        </div>
+                    </div> : <p className='text-center flex items-center m-auto h-fit'>No more products</p>
+                }
             </div>
         </div>
     )

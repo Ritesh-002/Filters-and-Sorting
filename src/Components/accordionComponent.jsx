@@ -120,7 +120,7 @@ const AccordionComponent = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <List className=''>
-                        {['T-Shirts', 'Shorts', 'Shirts', 'Hoodie', 'Jeans'].map((text, index) => (
+                        {['Casual', 'Sportswear', 'Formal', 'Trendy', 'Streetwear'].map((text, index) => (
                             <ListItem className='h-8' key={text} disablePadding>
                                 <ListItemButton className='flex justify-between'>
                                     <ListItemText primary={text} />

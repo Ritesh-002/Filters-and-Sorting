@@ -3,10 +3,23 @@ import { RxAvatar } from 'react-icons/rx'
 import { Link } from 'react-router-dom'
 import * as React from 'react';
 import MobileHamburger from './mobileHamburger';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchProducts } from '../Redux/Features/productSlice';
 
 
 const NavBar = () => {
+    const products = useSelector(state => state.products);
+    const dispatch = useDispatch();
+    const [searchVal, setSearchVal] = React.useState('');
+    const items = products.products;
 
+    const handleSearchChange = (e) => {
+        console.log("e", e)
+        console.log("e.target", e.target)
+        console.log("e.target.value", e.target.value)
+        setSearchVal(e.target.value)
+        dispatch(searchProducts(e.target.value));
+    }
 
     return (
         <div className=''>
@@ -25,7 +38,14 @@ const NavBar = () => {
                 <Link className='hidden md:block' to={''}>Brands</Link>
                 <div className='lg:w-1/3 h-10 border-2 border-black lg:border-0 rounded-3xl flex gap-2 ml-[3rem] items-center bg-gray-200'>
                     <CiSearch size={'35px'} className='pl-[0.5rem]' />
-                    <input placeholder='Search for products...' className=' placeholder-transparent lg:placeholder-black bg-gray-200 pl-[0.2rem] ml-[0.2rem] focus:outline-none rounded-3xl w-full h-full' type="text" name="" id="" />
+                    <input 
+                        value={searchVal} 
+                        onChange={(e) => handleSearchChange(e)} 
+                        placeholder='Search for products...' 
+                        className=' placeholder-transparent lg:placeholder-black bg-gray-200 pl-[0.2rem] ml-[0.2rem] focus:outline-none rounded-3xl w-full h-full' 
+                        type="text" 
+                        name="search" 
+                        id="" />
                 </div>
                 <CiShoppingCart className='hidden md:block' size={'35px'} />
                 <RxAvatar className='hidden md:block' size={'35px'} />

@@ -8,6 +8,26 @@ export const productSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
+        searchProducts: (state, action) => {
+            console.log('action', action)
+            console.log('action.payload', action.payload)
+            const query = action.payload.trim().toLowerCase();
+            // state.products.filter((el, idx) => {
+            //     // console.log('el', el);
+            //     el.name.startsWith(action.payload)
+            // })
+            const temp = [];
+            const searchedProducts = state.products.filter((item) => {
+                if(item.name.toLowerCase().startsWith(query)) {
+                    return item;
+                }
+            })
+            if(query) {
+                state.products = searchedProducts
+            } else {
+                state.products = [...initialState.products]
+            }
+        },
         sortProducts: (state, action) => {
             console.log('state.products', state.products)
             console.log('state', state)
@@ -35,6 +55,6 @@ export const productSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { sortProducts } = productSlice.actions
+export const { sortProducts, searchProducts } = productSlice.actions
 
 export default productSlice.reducer
