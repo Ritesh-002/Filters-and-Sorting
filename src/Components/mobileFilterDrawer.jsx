@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import AccordionComponent from './accordionComponent';
 import FilterHeader from './filterHeader';
-import { filterProductsByPriceRange, filterProductsByType } from '../Redux/Features/productSlice';
+import { filterProductsByColor, filterProductsByPriceRange, filterProductsByType } from '../Redux/Features/productSlice';
 import { SelectionContext } from '../App';
 
 const FilterDrawer = () => {
@@ -24,18 +24,23 @@ const FilterDrawer = () => {
 
         setState({ ...state, [anchor]: open });
     };
-    const { selectedItems, setSelectedItems, selectedItemsPriceRange, setSelectedItemsPriceRange } = React.useContext(SelectionContext)
+    const { selectedItems, setSelectedItems, selectedItemsColors, selectedItemsPriceRange, setSelectedItemsPriceRange } = React.useContext(SelectionContext)
     const selectedText = selectedItems.map(index => ['T-Shirts', 'Shorts', 'Shirts', 'Hoodie', 'Jeans'][index]);
     const dispatch = useDispatch();
+    const selectedItemColor = selectedItemsColors.map(index => ['black', 'red', 'green', 'white', 'pink', 'yellow', 'gray'][index])
     const handleApplyFilterClick = (selectedText) => {
         dispatch(filterProductsByType(selectedText))
     }
     const handleApplyFilterPriceClick = (selectedItemsPriceRange) => {
         dispatch(filterProductsByPriceRange(selectedItemsPriceRange))
     }
+    const handleApplyColorClick = (selectedItemColor) => {
+        dispatch(filterProductsByColor(selectedItemColor));
+    }
     const handleMultipleActions = (text) => {
-        handleApplyFilterClick(text);
         handleApplyFilterPriceClick(selectedItemsPriceRange);
+        handleApplyFilterClick(text);
+        handleApplyColorClick(selectedItemColor);
     };
     const list = (anchor) => (
         <Box

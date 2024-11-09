@@ -41,8 +41,8 @@ const Product = () => {
                     <p className='text-xl font-bold'>Casual</p>
                     {
                         pageNum == 1 ?
-                            <p className='text-sm text-gray-600'>Showing {totalItems>0?<span>1</span>:<span>0</span>}-{items.slice(0, 9).length} of {totalItems} Items</p> :
-                            <p className='text-sm text-gray-600'>Showing {totalItems>0?<span>{pageNum * 9 - 9}</span>:<span>0</span>}-{items.slice(0, pageNum*9).length} of {totalItems} Items</p>
+                            <p className='text-sm text-gray-600'>Showing {totalItems > 0 ? <span>1</span> : <span>0</span>}-{items.slice(0, 9).length} of {totalItems} Items</p> :
+                            <p className='text-sm text-gray-600'>Showing {totalItems > 0 ? <span>{pageNum * 9 - 9}</span> : <span>0</span>}-{items.slice(0, pageNum * 9).length} of {totalItems} Items</p>
                     }
                 </div>
                 <FilterDrawer />
@@ -52,7 +52,7 @@ const Product = () => {
                     <Filter />
                 </div>
                 {
-                    totalItems > 0 ? <div className='lg:w-3/4 lg:h-fit flex flex-wrap lg:gap-8 gap-6'>
+                    totalItems > 0 ? <div className='lg:w-3/4 lg:h-fit grid grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-4 '>
                         {
                             pageNum == 1 ? items.slice(0, 9).map((p, idx) => {
                                 return (
@@ -64,11 +64,11 @@ const Product = () => {
                                 )
                             })
                         }
-                        <div className='flex  items-center mt-5 justify-center'>
-                            {totalItems>9 && <Pagination page={pageNum} onChange={handlePageChange} className='lg:h-fit' count={5} shape="rounded" />}
-                        </div>
                     </div> : <p className='text-center flex items-center m-auto h-fit'>No more products</p>
                 }
+            </div>
+            <div className='flex h-fit items-center mt-5 justify-center'>
+                {totalItems > 9 && <Pagination page={pageNum} onChange={handlePageChange} className='lg:h-fit' count={5} shape="rounded" />}
             </div>
         </div>
     )
